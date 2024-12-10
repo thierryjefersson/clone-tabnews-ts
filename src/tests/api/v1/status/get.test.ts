@@ -7,8 +7,19 @@ test("GET to /api/v1/status should return 200", async () => {
   expect(response.status).toBe(200);
 });
 
-test("Connect to database and should return some data", async () => {
-  const result = await db.task.findMany();
+test("Connect to database, create e return data", async () => {
+  const egData = {
+    id: 200,
+    name: "academia",
+    check: false,
+  };
+  const result = await db.task.create({ data: egData });
+  await db.task.delete({
+    where: {
+      id: egData.id,
+    },
+  });
 
-  expect(result.length > 0).toBeTruthy();
+  console.log(result);
+  expect(result.name).toBe(egData.name);
 });
