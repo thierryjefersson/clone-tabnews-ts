@@ -18,10 +18,12 @@ export const GET = async () => {
 
   return NextResponse.json({
     updated_at: updatedAt,
-    database: {
-      version: databaseVersion[0].server_version,
-      max_connections: parseInt(databaseMaxConnections[0].max_connections),
-      opened_connections: databaseOpenedConnections[0].count,
+    dependencies: {
+      database: {
+        version: databaseVersion[0].server_version,
+        max_connections: parseInt(databaseMaxConnections[0].max_connections),
+        opened_connections: databaseOpenedConnections[0].count,
+      },
     },
   });
 };
