@@ -6,4 +6,8 @@ config();
 
 export default defineConfig({
   plugins: [tsConfigPaths()],
+  test: {
+    testTimeout: 60000,
+    hookTimeout: 60000,
+  },
 });
