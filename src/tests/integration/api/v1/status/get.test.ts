@@ -1,11 +1,9 @@
 import orchestrator from "@/tests/helpers/orchestrator";
-// import resetDb from "@/tests/helpers/reset-db";
 import { expect, test } from "vitest";
 import { beforeAll } from "vitest";
 
 beforeAll(async () => {
   await orchestrator.waitAllServices();
-  // await resetDb();
 });
 
 test("GET to /api/v1/status should return 200", async () => {
