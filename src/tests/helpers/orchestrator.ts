@@ -1,6 +1,7 @@
 import retry from "async-retry";
 
 async function waitAllServices() {
+  let variavelEsquecida;
   await waitForWebServer();
 
   async function waitForWebServer() {
@@ -13,4 +14,6 @@ async function waitAllServices() {
   }
 }
 
-export default { waitAllServices };
+const orchestrator = { waitAllServices };
+
+export default orchestrator;
