@@ -1,7 +1,6 @@
 import retry from "async-retry";
 
 async function waitAllServices() {
-  let variavelEsquecida;
   await waitForWebServer();
 
   async function waitForWebServer() {
