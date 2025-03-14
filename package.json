@@ -18,7 +18,8 @@
     "services:down": "docker compose -f src/infra/compose.yaml down",
     "wait-for-postgres": "tsx src/infra/scripts/wait-for-postgres.ts",
     "prisma:deploy": "dotenv -e .env.development -- npx prisma migrate deploy",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commit": "cz"
   },
   "dependencies": {
     "@prisma/client": "^6.0.1",
@@ -36,7 +37,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "commitizen": "^4.3.1",
     "concurrently": "^9.1.2",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.7",
     "eslint": "^8",
     "eslint-config-next": "15.0.4",
@@ -50,5 +53,10 @@
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
