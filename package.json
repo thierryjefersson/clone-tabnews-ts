@@ -32,6 +32,7 @@
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@commitlint/types": "^19.8.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^9.2.0",
     "@tailwindcss/postcss": "^4.0.12",
     "@types/async-retry": "^1.4.9",
     "@types/node": "^20",
@@ -45,9 +46,11 @@
     "eslint-config-next": "15.0.4",
     "eslint-config-prettier": "^10.1.1",
     "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "prisma": "^6.0.1",
+    "secretlint": "^9.2.0",
     "tailwindcss": "^4.0.12",
     "tsx": "^4.19.2",
     "typescript": "^5",
@@ -58,5 +61,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*": "secretlint --maskSecrets"
   }
 }
