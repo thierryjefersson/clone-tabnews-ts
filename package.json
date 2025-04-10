@@ -6,11 +6,8 @@
   "scripts": {
     "dev": "npm run services:up && npm run wait-for-postgres && npm run prisma:deploy && next dev",
     "build": "next build",
-    "postinstall": "prisma generate",
     "start": "next start",
-    "lint:eslint:check": "next lint --dir .",
-    "lint:prettier:check": "prettier --check .",
-    "lint:prettier:fix": "prettier --write .",
+    "postinstall": "prisma generate",
     "test": "npm run services:up && concurrently -n next,vitest --hide next -k -s command-vitest \"next dev\" \"vitest run\"",
     "test:watch": "vitest watch",
     "services:up": "docker compose -f src/infra/compose.yaml up -d",
@@ -18,6 +15,9 @@
     "services:down": "docker compose -f src/infra/compose.yaml down",
     "wait-for-postgres": "tsx src/infra/scripts/wait-for-postgres.ts",
     "prisma:deploy": "dotenv -e .env.development -- npx prisma migrate deploy",
+    "lint:eslint:check": "next lint --dir .",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
     "prepare": "husky",
     "commit": "cz"
   },
