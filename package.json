@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:prisma:deploy && next dev",
+    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:prisma:deploy && (trap 'npm run services:stop' INT TERM HUP; next dev)",
     "build": "next build",
     "start": "next start",
     "postinstall": "prisma generate",
