@@ -1,7 +1,8 @@
 import { db } from "@/infra/database";
+import { errorHandler } from "@/infra/error-handler";
 import { NextResponse } from "next/server";
 
-export const GET = async () => {
+export const GET = errorHandler(async () => {
   const updatedAt = new Date().toISOString();
 
   const databaseVersion = await db.$queryRaw<
@@ -26,4 +27,4 @@ export const GET = async () => {
       },
     },
   });
-};
+});
